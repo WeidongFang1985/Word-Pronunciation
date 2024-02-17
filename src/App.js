@@ -11,6 +11,12 @@ import LanguageButton from "./LanguageButton";
 const App = () => {
   const [word, setWord] = useState('');
 
+  const languages = [
+    { lang: 'en-GB', label: 'GB', color: 'primary' },
+    { lang: 'en-US', label: 'US', color: 'secondary' },
+    { lang: 'zh-CN', label: 'CN', color: 'error' },
+  ];
+
   const speak = (lang, word) => {
     const speech = new SpeechSynthesisUtterance(word);
     speech.lang = lang;
@@ -30,7 +36,7 @@ const App = () => {
       <Container maxWidth="sm" style={{ marginTop: '20px' }}>
         <TextField
           fullWidth
-          label="输入单词"
+          label="Please Enter the Word or Sentence"
           variant="outlined"
           value={word}
           onChange={(e) => setWord(e.target.value)}
@@ -38,9 +44,16 @@ const App = () => {
         />
 
         <Box display="flex" alignItems="center" paddingLeft="10px" gap={2}>
-          <LanguageButton lang="en-GB" label="GB" color="primary" word={word} onClick={speak} />
-          <LanguageButton lang="en-US" label="US" color="secondary" word={word} onClick={speak} />
-          <LanguageButton lang="zh-CN" label="CN" color="error" word={word} onClick={speak} />
+          {languages.map((language) => (
+            <LanguageButton
+              key={language.lang}
+              lang={language.lang}
+              label={language.label}
+              color={language.color}
+              word={word}
+              onClick={speak}
+            />
+          ))}
         </Box>
       </Container>
     </div>
