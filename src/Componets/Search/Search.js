@@ -4,13 +4,17 @@ import Box from "@mui/material/Box";
 import LanguageButton from "../LanguageButton/LanguageButton";
 import Container from "@mui/material/Container";
 import {languages} from "../../Services/Languages";
+import Typography from "@mui/material/Typography";
+import {Slider} from "@mui/material";
 
 const Search = () => {
 	const [word, setWord] = useState('');
+	const [rate, setRate] = useState(1);
 
 	const speak = (lang, word) => {
 		const speech = new SpeechSynthesisUtterance(word);
 		speech.lang = lang;
+		speech.rate = rate;
 		window.speechSynthesis.speak(speech);
 	};
 
@@ -35,9 +39,21 @@ const Search = () => {
 							label={language.label}
 							color={language.color}
 							word={word}
-							onClick={speak}
+							onClick={() => speak(language.lang, word)}
 						/>
 					))}
+				</Box>
+
+				<Box display="flex" flexDirection="column" alignItems="center" marginTop={2}>
+					<Typography>Adjust Speech Rate</Typography>
+					<Slider
+						value={rate}
+						onChange={(e, newValue) => setRate(newValue)}
+						step={0.1}
+						min={0.1}
+						max={2}
+						valueLabelDisplay="auto"
+					/>
 				</Box>
 			</Container>
 		</div>
