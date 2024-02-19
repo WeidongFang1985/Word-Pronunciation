@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/word-pronunciation/static/css/main.e6c13ad2.css",
+    "main.js": "/word-pronunciation/static/js/main.26c00227.js",
+    "static/js/453.333feaf7.chunk.js": "/word-pronunciation/static/js/453.333feaf7.chunk.js",
+    "index.html": "/word-pronunciation/index.html",
+    "main.e6c13ad2.css.map": "/word-pronunciation/static/css/main.e6c13ad2.css.map",
+    "main.26c00227.js.map": "/word-pronunciation/static/js/main.26c00227.js.map",
+    "453.333feaf7.chunk.js.map": "/word-pronunciation/static/js/453.333feaf7.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.e6c13ad2.css",
+    "static/js/main.26c00227.js"
+  ]
+}
